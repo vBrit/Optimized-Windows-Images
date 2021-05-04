@@ -110,17 +110,9 @@
                     <Description>Install VMware Tools</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>netsh advfirewall firewall set rule group=&quot;Windows Remote Administration&quot; new enable=yes</CommandLine>
+                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\enable-winrm.ps1</CommandLine>
+                    <Description>Enable WinRM</Description>
                     <Order>3</Order>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>netsh advfirewall firewall set rule name=&quot;Windows Remote Management (HTTP-In)&quot; new enable=yes action=allow</CommandLine>
-                    <Order>4</Order>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <Order>5</Order>
-                    <CommandLine>Set-Service winrm -startuptype &quot;auto&quot;</CommandLine>
-                    <RequiresUserInput>false</RequiresUserInput>
                 </SynchronousCommand>
             </FirstLogonCommands>
             <OOBE>

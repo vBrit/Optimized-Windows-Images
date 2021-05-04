@@ -58,6 +58,7 @@
         "floppy_files": [
             "autounattend.xml",
             "scripts/install-vm-tools.cmd",
+            "scripts/enable-winrm.ps1",
             "scripts/set-temp.ps1"
         ]
     }
