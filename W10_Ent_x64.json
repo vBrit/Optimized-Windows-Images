@@ -18,10 +18,10 @@
         "winrm_password": "{{user `winadmin-password`}}",
         "winrm_timeout": "1h30m",
   
-        "convert_to_template": "true",
+        "convert_to_template": "false",
 
         "vm_name": "{{user `vm-name`}}",
-        "guest_os_type": "windows9Server64Guest",
+        "guest_os_type": "windows9_64Guest",
   
         "CPUs": "{{user `vm-cpu-num`}}",
         "RAM": "{{user `vm-mem-size`}}",
@@ -44,7 +44,12 @@
         ],
 
         "shutdown_command": "shutdown /s /t 5",
-  
+        
+        "configuration_parameters": {
+          "devices.hotplug": false,
+          "isolation.tools.setinfo.disable": false
+          },
+
         "iso_paths": [
           "{{user `os_iso_path`}}",
           "[] /vmimages/tools-isoimages/windows.iso"
@@ -52,10 +57,6 @@
   
         "floppy_files": [
             "autounattend.xml",
-            "scripts/disable-network-discovery.cmd",
-            "scripts/disable-server-manager.ps1",
-            "scripts/enable-rdp.cmd",
-            "scripts/enable-winrm.ps1",
             "scripts/install-vm-tools.cmd",
             "scripts/set-temp.ps1"
         ]
