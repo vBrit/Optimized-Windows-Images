@@ -29,4 +29,4 @@ Tested with **VMware ESX 6.7** and **VMware ESX 7.0** | User: Administrator | Pa
 
 # How to use: #
 
-execute **packer build win2019.base.json**
+execute **packer build -var-file=credentials.json W10_Ent_x64.json**
