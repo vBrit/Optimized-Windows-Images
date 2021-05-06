@@ -45,5 +45,8 @@ New-Item -ItemType Directory -Force -Path $TempFolder
 [Environment]::SetEnvironmentVariable("TEMP", $TempFolder, [EnvironmentVariableTarget]::User)
 [Environment]::SetEnvironmentVariable("TMP", $TempFolder, [EnvironmentVariableTarget]::User)
 
+# Install .Net Framework 3.5
+DISM /Online /Enable-Feature /FeatureName:NetFx3 /All /LimitAccess /Source:D:\sources\sxs
+
 write-host "Script completed! Moving to next step after 5 second pause" -ForegroundColor Cyan
 start-sleep -s 5
