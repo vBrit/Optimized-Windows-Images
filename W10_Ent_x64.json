@@ -27,7 +27,7 @@
         "RAM": "{{user `vm-mem-size`}}",
         "RAM_reserve_all": true,
         "firmware": "bios",
-  
+        
         "storage": [
           {
             "disk_size": "{{user `os-disk-size`}}",
@@ -46,8 +46,7 @@
         "shutdown_command": "shutdown /s /t 5",
         
         "configuration_parameters": {
-          "devices.hotplug": false,
-          "isolation.tools.setinfo.disable": false
+          "devices.hotplug": false
           },
 
         "iso_paths": [
@@ -56,10 +55,10 @@
         ],
   
         "floppy_files": [
-            "autounattend.xml",
-            "scripts/install-vm-tools.cmd",
-            "scripts/enable-winrm.ps1",
-            "scripts/set-temp.ps1"
+          "autounattend.xml",
+          "scripts/Start-FirstSteps.ps1",
+          "scripts/Install-VMTools.ps1",
+          "scripts/Enable-WinRM.ps1"
         ]
     }
   ],
